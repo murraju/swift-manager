@@ -12,8 +12,6 @@ swift-manager is targeted towards Developers building applications on Swift or S
 
 Supported on Ruby 1.9.3-p125 and JRuby-1.6.7
 
-**Tested only on development environments(http://swift.openstack.org/development_saio.html)**
-
 1. Ability to create/delete containers and objects in S3 and native APIs. No CDN is supported at this time.
 2. Ability to list containers and objects (files)
 3. Batch jobs:
