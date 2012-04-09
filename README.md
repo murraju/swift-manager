@@ -9,7 +9,6 @@ swift-manager is targeted towards Developers building applications on Swift or S
 
 ##Features
 
-Version: 0.0.1 (beta)
 
 Supported on Ruby 1.9.3-p125 and JRuby-1.6.7
 
