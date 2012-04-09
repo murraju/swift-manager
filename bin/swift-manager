@@ -200,9 +200,9 @@ command :list do |c|
   c.flag [:t, :type]
   c.desc 'Authentication file (auth_file.json)'
   c.flag [:f, :file]
-  c.desc 'Item: container, files'
+  c.desc 'Item: container, objects'
   c.flag [:i, :item]
-  c.desc 'Name: container name used only when listing files'
+  c.desc 'Name: container name used only when listing objects'
   c.flag [:n, :name]
 
   c.action do |global_options,options,args|
@@ -221,7 +221,7 @@ command :list do |c|
         swift_client.list_containers
         puts ''
       elsif item == 'files'
-        swift_client.list_files(container_name)
+        swift_client.list_objects(container_name)
         puts ''
       end
     else
