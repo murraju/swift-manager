@@ -1,0 +1,337 @@
+#!/usr/bin/env ruby
+#
+# Author:: Murali Raju (<murali.raju@.com>)
+# Copyright:: Copyright (c) 2011 Murali Raju.
+# License:: Apache License, Version 2.0
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+unless File.respond_to? :realpath
+  class File #:nodoc:
+    def self.realpath path
+      return realpath(File.readlink(path)) if symlink?(path)
+      path
+    end
+  end
+end
+$: << File.expand_path(File.dirname(File.realpath(__FILE__)) + '/../lib')
+
+require 'rubygems'
+require 'irb'
+require 'gli'
+require 'swift-manager_version'
+require 'rainbow'
+require 'json'
+require 'fog'
+require 'progress_bar'
+require 'terminal-table'
+require 'configurator'
+require 'parser'
+require 'swift_client'
+require 'cloud_shell'
+require 'formatter'
+
+include GLI
+program_desc '[             OpenStack Swift Manager         ]'.bright.color(:blue)
+puts ''
+
+version SwiftManager::VERSION
+
+# desc 'Log output to ~/.swift-manager/log'
+# switch [:l,:log]
+
+
+desc 'Create Object Storage'
+arg_name 'storage'
+command :create do |c|
+
+  c.desc 'Type: s3 or swift'
+  c.flag [:t, :type]
+  c.desc 'Name: a prefix for the container. The result will be [prefix+timestamp] to be unique'
+  c.flag [:n, :name]
+  c.desc 'Auth Config'
+  c.flag [:f, :file]
+  c.desc 'Item: container, file'
+  c.flag [:i, :item]
+ 
+
+  c.action do |global_options,options,args|
+    type            = options[:type]
+    name            = options[:name]
+    file            = options[:file]
+    item            = options[:item]
+
+    case type
+    when 'swift', 's3'
+      swift_client = SwiftClient.new(type, file)
+      if item == 'container'
+        swift_client.create_container_no_cdn(name)
+        swift_client.list_containers
+      end
+    else
+      raise 'Incorrect options. Please try again or type \'swift-manager help create\''
+    end
+
+  end
+end
+
+desc 'Generate auth, test configurations'
+arg_name 'config'
+command :generate do |c|
+
+  c.desc 'Type: auth'
+  c.flag [:t, :type]
+  c.desc 'Provider: aws, rackspace (for swift)'
+  c.flag [:p, :provider]
+  c.desc 'Service: s3, swift'
+  c.flag [:s, :service]
+  c.desc 'Auth URL ip address: Swift '
+  c.flag [:i, :ip]
+  c.desc 'Secret Access Key or Swift API Key'
+  c.flag [:k, :secret_access_key]
+  c.desc 'Access Key ID or Swift Username: <user>:<user>'
+  c.flag [:a, :access_key_id]
+  c.desc 'Tag: Assing a tag for later use'
+  c.flag :tag
+
+  c.action do |global_options,options,args|
+
+      config_type       = options[:type]
+      provider          = options[:provider]
+      service           = options[:service]
+      secret_access_key = options[:secret_access_key]
+      access_key_id     = options[:access_key_id]
+      tag               = options[:tag]
+      url_ip            = options[:ip]
+      
+      case config_type
+      when 'auth'
+        auth_config = Configurator.new
+        auth_hash   = { :provider => provider, :service => service, :url_ip => url_ip, 
+                        :secret_access_key => secret_access_key, :access_key_id => access_key_id, :tag => tag }
+        auth_config.create_auth_config(auth_hash)
+      else
+        raise 'Incorrect options. Please try again or type \'swift-manager help setup\''
+      end 
+
+ 
+
+  end
+end
+
+desc 'Delete Object Storage'
+arg_name 'storage'
+command :delete do |c|
+
+
+  c.desc 'Type: s3 or swift'
+  c.flag [:t, :type]
+  c.desc 'Auth Config'
+  c.flag [:f, :file]
+  c.desc 'Item: container, files (all files)'
+  c.flag [:i, :item]
+  c.desc 'Prefix of container'
+  c.flag [:p, :prefix]
+
+
+  c.action do |global_options,options,args|
+    type = options[:type]
+    file = options[:file]
+    item = options[:item]
+    prefix = options[:prefix]
+
+    case type
+    when 'swift', 's3'
+      swift_client = SwiftClient.new(type, file)
+      if item == 'container'
+        swift_client.delete_container(prefix)
+      elsif item == 'files'
+        swift_client.delete_files(prefix)
+      end
+    else
+      raise 'Incorrect options. Please try again or type \'swift-manager help delete\''
+    end
+
+ 
+  end
+end
+
+desc 'Interactive Shell (Read-Only)'
+arg_name 'container'
+command :shell do |c|
+
+  c.desc 'Type: s3, swift'
+  c.flag [:t, :type]
+  c.desc 'Auth Config'
+  c.flag [:f, :file]
+
+  c.action do |global_options,options,args|
+    type = options[:type]
+    file = options[:file]
+
+    case type
+    when 'swift', 's3'
+      swift_client = SwiftClient.new(type, file)
+      swift_client.generate_json_output
+      shell = CloudShell.new
+      json  = File.read(Dir.home + "/.swift-manager/shell/container.json")
+      shell.run(json)
+    end
+
+  end
+end
+
+
+desc 'List: configs, storage. Read examples.txt for more information'
+arg_name 'config, storage'
+command :list do |c|
+  
+  c.desc 'Type: auth, s3, swift'
+  c.flag [:t, :type]
+  c.desc 'Authentication file (auth_file.json)'
+  c.flag [:f, :file]
+  c.desc 'Item: container, files'
+  c.flag [:i, :item]
+  c.desc 'Name: container name used only when listing files'
+  c.flag [:n, :name]
+
+  c.action do |global_options,options,args|
+    type            = options[:type]
+    item            = options[:item]
+    file            = options[:file]
+    container_name  = options[:name]
+
+    case type
+    when 'auth'
+      auth_config = Parser.new
+      auth_config.list_auth_configs
+    when 'swift', 's3'
+      swift_client = SwiftClient.new(type, file)
+      if item == 'container'
+        swift_client.list_containers
+        puts ''
+      elsif item == 'files'
+        swift_client.list_files(container_name)
+        puts ''
+      end
+    else
+      raise 'Incorrect option. Type \'swift-manager help list\' to see options'
+    end
+ 
+  end
+end
+
+desc 'Show Configuration Parameters'
+arg_name 'config'
+command :show do |c|
+  
+  c.desc 'Type: auth'
+  c.flag [:t, :type]
+  c.desc 'File: config file'
+  c.flag [:f, :file]
+
+  c.action do |global_options,options,args|
+    type = options[:type]
+    file = options[:file]
+
+    case type
+    when 'auth'
+      config = Parser.new
+      config.show_auth_config(file)
+    end
+
+  end
+end
+
+desc 'Run jobs based on a config'
+arg_name 'job'
+command :run do |c|
+
+
+  c.desc 'Type: s3, swift'
+  c.flag [:t, :type]
+  c.desc 'Auth Config'
+  c.flag [:f, :file]
+  c.desc 'Job: clean, create-containers, create-files'
+  c.flag [:j, :job]
+  c.desc 'Source: Path to local directory containing the files. Make sure to include "" for the path'
+  c.flag [:s, :source]
+  c.desc 'Name of container to backup to. Run \'swift-manager list storage -t s3 -f <auth> -i container\''
+  c.flag [:d, :destination]
+  c.desc 'Prefix for containers or files'
+  c.flag [:p, :prefix]
+  c.desc 'N number'
+  c.flag [:n, :number]
+
+  c.action do |global_options,options,args|
+    type        = options[:type]
+    file        = options[:file]
+    job         = options[:job]
+    source      = options[:source].to_s
+    destination = options[:destination].to_s
+    number_of   = options[:number].to_i
+    prefix      = options[:prefix]
+
+    case type
+    when 'swift', 's3'
+      if job == 'create-files'
+        swift_client = SwiftClient.new(type, file)
+        swift_client.create_files(source, destination)
+      elsif job == 'clean'
+        swift_client = SwiftClient.new(type, file)
+        swift_client.delete_containers
+      elsif job == 'create-containers'
+        swift_client = SwiftClient.new(type, file)
+        puts "Creating #{number_of} containers...please wait".color(:green)
+        swift_client.create_containers_no_cdn(prefix, number_of)
+        puts ''
+        puts 'Create containers completed'.color(:green)
+        puts ''
+      end
+    else
+      raise 'Incorrect option. Type \'swift-manager help run\' to see options'
+    end
+
+
+  end
+end
+
+
+
+pre do |global,command,options,args|
+  # Pre logic here
+  # Return true to proceed; false to abourt and not call the
+  # chosen command
+  # Use skips_pre before a command to skip this block
+  # on that command only
+
+
+
+  true
+ 
+end
+
+post do |global,command,options,args|
+  # Post logic here
+  # Use skips_post before a command to skip this
+  # block on that command only 
+
+end
+
+on_error do |exception|
+  # Error logic here
+  # return false to skip default error handling
+  true
+end
+
+exit GLI.run(ARGV)
