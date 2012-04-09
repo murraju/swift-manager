@@ -5,7 +5,7 @@ swift-manager aims to be a Ruby based OpenStack Swift Client with a git-like int
 
 ##Audience
 
-swift-manager is targeted towards Developers building applications on Swift or S3 APIs. However, anyone wanting to use it to test a Swift Cloud or S3 semantics may find it useful.
+swift-manager is targeted towards Developers to test Swift or S3 APIs. However, anyone wanting to use it to test a Swift Cloud or S3 semantics may find it useful.
 
 ##Features
 
@@ -41,7 +41,7 @@ gem install swift-manager
 
 1. CDN support and CDN enable existing containers
 2. Shell support for listing objects
-3. Write support for Shell. Example, implemented "create or touch commands"
+3. Write support for Shell. Example, implement"create or touch commands" to create containers and objects
 4. More granulor metrics for create and delete containers/objects in order to test large requests (millions)
 5. Implement port, URL, and other parameters for Authentiation Configuration JSON
 
