@@ -220,7 +220,7 @@ command :list do |c|
       if item == 'container'
         swift_client.list_containers
         puts ''
-      elsif item == 'files'
+      elsif item == 'objects'
         swift_client.list_objects(container_name)
         puts ''
       end
