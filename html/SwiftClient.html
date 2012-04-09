@@ -71,19 +71,19 @@
           
           <li><a href="#method-i-create_containers_no_cdn">#create_containers_no_cdn</a></li>
           
-          <li><a href="#method-i-create_files">#create_files</a></li>
+          <li><a href="#method-i-create_objects">#create_objects</a></li>
           
           <li><a href="#method-i-delete_container">#delete_container</a></li>
           
           <li><a href="#method-i-delete_containers">#delete_containers</a></li>
           
-          <li><a href="#method-i-delete_files">#delete_files</a></li>
+          <li><a href="#method-i-delete_objects">#delete_objects</a></li>
           
           <li><a href="#method-i-generate_json_output">#generate_json_output</a></li>
           
           <li><a href="#method-i-list_containers">#list_containers</a></li>
           
-          <li><a href="#method-i-list_files">#list_files</a></li>
+          <li><a href="#method-i-list_objects">#list_objects</a></li>
           
         </ul>
       </div>
@@ -354,12 +354,12 @@ under the License.</p>
         </div><!-- create_containers_no_cdn-method -->
 
       
-        <div id="create_files-method" class="method-detail ">
-          <a name="method-i-create_files"></a>
+        <div id="create_objects-method" class="method-detail ">
+          <a name="method-i-create_objects"></a>
 
           
           <div class="method-heading">
-            <span class="method-name">create_files</span><span
+            <span class="method-name">create_objects</span><span
               class="method-args">(path_to_local_files, container)</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
@@ -371,10 +371,10 @@ under the License.</p>
             
 
             
-            <div class="method-source-code" id="create_files-source">
+            <div class="method-source-code" id="create_objects-source">
 <pre>
 <span class="ruby-comment"># File lib/swift_client.rb, line 125</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_files</span>(<span class="ruby-identifier">path_to_local_files</span>, <span class="ruby-identifier">container</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_objects</span>(<span class="ruby-identifier">path_to_local_files</span>, <span class="ruby-identifier">container</span>)
         <span class="ruby-identifier">directory</span> = <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">directories</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">container</span>)
         <span class="ruby-identifier">files</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-identifier">path_to_local_files</span>]
         <span class="ruby-keyword">for</span> <span class="ruby-identifier">file</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">files</span> <span class="ruby-keyword">do</span>
@@ -392,17 +392,17 @@ under the License.</p>
 
         <span class="ruby-keyword">end</span>
         <span class="ruby-identifier">puts</span> <span class="ruby-string">''</span>
-        <span class="ruby-identifier">puts</span> <span class="ruby-string">'Upload complete'</span>.<span class="ruby-identifier">color</span>(<span class="ruby-value">:green</span>)
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">'Creating objects complete'</span>.<span class="ruby-identifier">color</span>(<span class="ruby-value">:green</span>)
         <span class="ruby-identifier">puts</span> <span class="ruby-string">''</span>
 <span class="ruby-keyword">end</span></pre>
-            </div><!-- create_files-source -->
+            </div><!-- create_objects-source -->
             
           </div>
 
           
 
           
-        </div><!-- create_files-method -->
+        </div><!-- create_objects-method -->
 
       
         <div id="delete_container-method" class="method-detail ">
@@ -494,12 +494,12 @@ under the License.</p>
         </div><!-- delete_containers-method -->
 
       
-        <div id="delete_files-method" class="method-detail ">
-          <a name="method-i-delete_files"></a>
+        <div id="delete_objects-method" class="method-detail ">
+          <a name="method-i-delete_objects"></a>
 
           
           <div class="method-heading">
-            <span class="method-name">delete_files</span><span
+            <span class="method-name">delete_objects</span><span
               class="method-args">(container)</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
@@ -511,10 +511,10 @@ under the License.</p>
             
 
             
-            <div class="method-source-code" id="delete_files-source">
+            <div class="method-source-code" id="delete_objects-source">
 <pre>
 <span class="ruby-comment"># File lib/swift_client.rb, line 151</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_files</span>(<span class="ruby-identifier">container</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_objects</span>(<span class="ruby-identifier">container</span>)
 
     <span class="ruby-identifier">directory</span> = <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">directories</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">container</span>)
     <span class="ruby-identifier">files</span> = <span class="ruby-identifier">directory</span>.<span class="ruby-identifier">files</span>
@@ -524,14 +524,14 @@ under the License.</p>
         <span class="ruby-identifier">puts</span> <span class="ruby-string">''</span>
         <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;*Deleting all files in container #{container}&quot;</span>.<span class="ruby-identifier">bright</span>
 <span class="ruby-keyword">end</span></pre>
-            </div><!-- delete_files-source -->
+            </div><!-- delete_objects-source -->
             
           </div>
 
           
 
           
-        </div><!-- delete_files-method -->
+        </div><!-- delete_objects-method -->
 
       
         <div id="generate_json_output-method" class="method-detail ">
@@ -605,12 +605,12 @@ under the License.</p>
         </div><!-- list_containers-method -->
 
       
-        <div id="list_files-method" class="method-detail ">
-          <a name="method-i-list_files"></a>
+        <div id="list_objects-method" class="method-detail ">
+          <a name="method-i-list_objects"></a>
 
           
           <div class="method-heading">
-            <span class="method-name">list_files</span><span
+            <span class="method-name">list_objects</span><span
               class="method-args">(container_name)</span>
             <span class="method-click-advice">click to toggle source</span>
           </div>
@@ -622,20 +622,20 @@ under the License.</p>
             
 
             
-            <div class="method-source-code" id="list_files-source">
+            <div class="method-source-code" id="list_objects-source">
 <pre>
 <span class="ruby-comment"># File lib/swift_client.rb, line 147</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">list_files</span>(<span class="ruby-identifier">container_name</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list_objects</span>(<span class="ruby-identifier">container_name</span>)
         <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">directories</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">container_name</span>).<span class="ruby-identifier">files</span>.<span class="ruby-identifier">table</span>([<span class="ruby-value">:key</span>, <span class="ruby-value">:last_modified</span>, <span class="ruby-value">:content_length</span>])                      
 <span class="ruby-keyword">end</span></pre>
-            </div><!-- list_files-source -->
+            </div><!-- list_objects-source -->
             
           </div>
 
           
 
           
-        </div><!-- list_files-method -->
+        </div><!-- list_objects-method -->
 
       
       </div><!-- public-instance-method-details -->
