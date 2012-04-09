@@ -225,8 +225,6 @@ Command Options:
 
 Connecting to OpenStack Swift...
 
-Uploading file APIsAStrategyGuide.epub to appliv-1333979807
-Uploading file build-awesome-command-line-applications-in-ruby_p1_0.epub to appliv-1333979807
 Uploading file file1.txt to appliv-1333979807
 Uploading file file2.txt to appliv-1333979807
 Uploading file file3.txt to appliv-1333979807
