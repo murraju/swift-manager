@@ -15,7 +15,7 @@ Commands:
     generate - Generate auth configurations
     help     - Shows list of commands or help for one command
     list     - List: configs, storage. Read examples.txt for more information
-    run      - Run jobs based on a config
+    run      - Run batch jobs. Type 'swift-manager help run' to see options
     shell    - Interactive Shell (Read-Only)
     show     - Show Configuration Parameters
 ➜  ~  
