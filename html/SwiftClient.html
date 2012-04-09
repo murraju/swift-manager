@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+  <title>Class: SwiftClient</title>
+
+  <link rel="stylesheet" href="./rdoc.css" type="text/css" media="screen" />
+
+  <script src="./js/jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body id="top" class="class">
+
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="./index.html">Home</a>
+          <a href="./index.html#classes">Classes</a>
+          <a href="./index.html#methods">Methods</a>
+        </h3>
+      </div>
+    </div>
+
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="./lib/swift_client_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/swift_client.rb">lib/swift_client.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
+
+      
+    </div>
+
+    <div id="class-metadata">
+      
+      <!-- Parent Class -->
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link"><a href="Object.html">Object</a></p>
+        
+      </div>
+      
+
+      
+
+      
+
+      
+      <!-- Method Quickref -->
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-i-create_container_no_cdn">#create_container_no_cdn</a></li>
+          
+          <li><a href="#method-i-create_containers_no_cdn">#create_containers_no_cdn</a></li>
+          
+          <li><a href="#method-i-create_files">#create_files</a></li>
+          
+          <li><a href="#method-i-delete_container">#delete_container</a></li>
+          
+          <li><a href="#method-i-delete_containers">#delete_containers</a></li>
+          
+          <li><a href="#method-i-delete_files">#delete_files</a></li>
+          
+          <li><a href="#method-i-generate_json_output">#generate_json_output</a></li>
+          
+          <li><a href="#method-i-list_containers">#list_containers</a></li>
+          
+          <li><a href="#method-i-list_files">#list_files</a></li>
+          
+        </ul>
+      </div>
+      
+
+      
+    </div>
+
+    <div id="project-metadata">
+      
+      
+      <div id="fileindex-section" class="section project-section">
+        <h3 class="section-header">Files</h3>
+        <ul>
+        
+          <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
+        
+        </ul>
+      </div>
+      
+
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="./images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
+
+        <ul class="link-list">
+        
+          <li><a href="./CloudShell.html">CloudShell</a></li>
+        
+          <li><a href="./CloudShell/Context.html">CloudShell::Context</a></li>
+        
+          <li><a href="./Configurator.html">Configurator</a></li>
+        
+          <li><a href="./Formatter.html">Formatter</a></li>
+        
+          <li><a href="./Object.html">Object</a></li>
+        
+          <li><a href="./Parser.html">Parser</a></li>
+        
+          <li><a href="./SwiftClient.html">SwiftClient</a></li>
+        
+          <li><a href="./SwiftManager.html">SwiftManager</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
+
+      
+    </div>
+  </div>
+
+  <div id="documentation">
+    <h1 class="class">SwiftClient</h1>
+
+    <div id="description" class="description">
+      <table class="rdoc-list"><tr><td class="rdoc-term"><p>Author</p></td>
+<td>
+<p>Murali Raju (&lt;murali.raju@appliv.com&gt;)</p>
+</td></tr><tr><td class="rdoc-term"><p>Copyright</p></td>
+<td>
+<p>Copyright © 2011 Murali Raju.</p>
+</td></tr><tr><td class="rdoc-term"><p>License</p></td>
+<td>
+<p>Apache License, Version 2.0</p>
+</td></tr></table>
+
+<p>Licensed under the Apache License, Version 2.0 (the “License”); you may not
+use this file except in compliance with the License. You may obtain a copy
+of the License at</p>
+
+<p><a
+href="http://www.apache.org/licenses/LICENSE-2.0">www.apache.org/licenses/LICENSE-2.0</a></p>
+
+<p>Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an “AS IS” BASIS, WITHOUT
+WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+License for the specific language governing permissions and limitations
+under the License.</p>
+
+    </div><!-- description -->
+
+    
+    
+    
+    <div id="5Buntitled-5D" class="documentation-section">
+      
+
+      
+
+      
+
+      
+
+      <!-- Methods -->
+      
+      <div id="public-class-method-details" class="method-section section">
+        <h3 class="section-header">Public Class Methods</h3>
+
+      
+        <div id="new-method" class="method-detail ">
+          <a name="method-c-new"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">new</span><span
+              class="method-args">(type, auth_json)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="new-source">
+<pre>
+<span class="ruby-comment"># File lib/swift_client.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">type</span>, <span class="ruby-identifier">auth_json</span>)
+        <span class="ruby-identifier">auth_config</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">home</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot;/.swift-manager/authentication/#{auth_json}.json&quot;</span>)
+        <span class="ruby-ivar">@auth_params</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">auth_config</span>)
+
+        <span class="ruby-keyword">case</span> <span class="ruby-identifier">type</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-string">'s3'</span>
+                <span class="ruby-identifier">provider</span> = <span class="ruby-ivar">@auth_params</span>[<span class="ruby-string">&quot;provider&quot;</span>]
+                <span class="ruby-identifier">aws_secret_access_key</span> = <span class="ruby-ivar">@auth_params</span>[<span class="ruby-string">&quot;keys&quot;</span>][<span class="ruby-string">&quot;secret_access_key&quot;</span>]
+                <span class="ruby-identifier">aws_access_key_id</span> = <span class="ruby-ivar">@auth_params</span>[<span class="ruby-string">&quot;keys&quot;</span>][<span class="ruby-string">&quot;access_key_id&quot;</span>]
+                <span class="ruby-keyword">begin</span>
+                        <span class="ruby-identifier">puts</span> <span class="ruby-string">'Connecting to OpenStack Swift: S3 middleware...'</span>.<span class="ruby-identifier">color</span>(<span class="ruby-value">:green</span>)
+                        <span class="ruby-identifier">puts</span> <span class="ruby-string">''</span>
+                        <span class="ruby-ivar">@connection</span> = <span class="ruby-constant">Fog</span><span class="ruby-operator">::</span><span class="ruby-constant">Storage</span>.<span class="ruby-identifier">new</span>(     <span class="ruby-value">:provider</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">provider</span>, 
+                                                                                        <span class="ruby-value">:aws_secret_access_key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">aws_secret_access_key</span>, 
+                                                                                        <span class="ruby-value">:aws_access_key_id</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">aws_access_key_id</span>     )
+                
+                <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                        <span class="ruby-identifier">raise</span> <span class="ruby-string">'Unable to connect to OpenStack Swift: S3 middleware. Check authentication information or if the service is running'</span>
+                <span class="ruby-keyword">end</span>
+
+        <span class="ruby-keyword">when</span> <span class="ruby-string">'swift'</span>
+                <span class="ruby-identifier">provider</span> = <span class="ruby-ivar">@auth_params</span>[<span class="ruby-string">&quot;provider&quot;</span>]                  
+                <span class="ruby-identifier">swift_api_key</span> = <span class="ruby-ivar">@auth_params</span>[<span class="ruby-string">&quot;keys&quot;</span>][<span class="ruby-string">&quot;secret_access_key&quot;</span>]
+                <span class="ruby-identifier">swift_username</span> = <span class="ruby-ivar">@auth_params</span>[<span class="ruby-string">&quot;keys&quot;</span>][<span class="ruby-string">&quot;access_key_id&quot;</span>]
+                <span class="ruby-identifier">swift_auth_ip</span> = <span class="ruby-ivar">@auth_params</span>[<span class="ruby-string">&quot;url_ip&quot;</span>]
+
+                <span class="ruby-keyword">begin</span>
+                <span class="ruby-constant">Excon</span>.<span class="ruby-identifier">defaults</span>[<span class="ruby-value">:ssl_verify_peer</span>] = <span class="ruby-keyword">false</span> <span class="ruby-comment">#SSL verify error on Mac OS X       </span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-string">'Connecting to OpenStack Swift...'</span>.<span class="ruby-identifier">color</span>(<span class="ruby-value">:green</span>)
+                <span class="ruby-identifier">puts</span> <span class="ruby-string">''</span>
+                <span class="ruby-ivar">@connection</span> = <span class="ruby-constant">Fog</span><span class="ruby-operator">::</span><span class="ruby-constant">Storage</span>.<span class="ruby-identifier">new</span>({     <span class="ruby-value">:provider</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">provider</span>,
+                                                                                        <span class="ruby-value">:rackspace_username</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">swift_username</span>,
+                                                                                        <span class="ruby-value">:rackspace_api_key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">swift_api_key</span>,
+                                                                                        <span class="ruby-value">:rackspace_auth_url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{swift_auth_ip}:8080/auth/v1.0&quot;</span>})
+
+                <span class="ruby-ivar">@cdn_connection</span> = <span class="ruby-constant">Fog</span><span class="ruby-operator">::</span><span class="ruby-constant">CDN</span>.<span class="ruby-identifier">new</span>({     <span class="ruby-value">:provider</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">provider</span>,
+                                                                                        <span class="ruby-value">:rackspace_username</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">swift_username</span>,
+                                                                                        <span class="ruby-value">:rackspace_api_key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">swift_api_key</span>,
+                                                                                        <span class="ruby-value">:rackspace_auth_url</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{swift_auth_ip}:8080/auth/v1.0&quot;</span>})                  
+
+                <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                        <span class="ruby-identifier">raise</span> <span class="ruby-string">'Unable to connect to OpenStack Swift. Check authentication information or if the service is running.'</span>
+                <span class="ruby-keyword">end</span>                                          
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- new-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- new-method -->
+
+      
+      </div><!-- public-class-method-details -->
+    
+      <div id="public-instance-method-details" class="method-section section">
+        <h3 class="section-header">Public Instance Methods</h3>
+
+      
+        <div id="create_container_no_cdn-method" class="method-detail ">
+          <a name="method-i-create_container_no_cdn"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_container_no_cdn</span><span
+              class="method-args">(prefix)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_container_no_cdn-source">
+<pre>
+<span class="ruby-comment"># File lib/swift_client.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_container_no_cdn</span>(<span class="ruby-identifier">prefix</span>)
+        <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">directories</span>.<span class="ruby-identifier">create</span>(
+                                <span class="ruby-value">:key</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;#{prefix}-#{Time.now.to_i}&quot;</span>, <span class="ruby-comment"># globally unique name</span>
+                                <span class="ruby-value">:public</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>,
+                                <span class="ruby-value">:cdn</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;&quot;</span>
+        )
+        <span class="ruby-identifier">sleep</span> <span class="ruby-value">1</span>       
+        <span class="ruby-identifier">list_containers</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">''</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- create_container_no_cdn-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_container_no_cdn-method -->
+
+      
+        <div id="create_containers_no_cdn-method" class="method-detail ">
+          <a name="method-i-create_containers_no_cdn"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_containers_no_cdn</span><span
+              class="method-args">(prefix, number_of)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_containers_no_cdn-source">
+<pre>
+<span class="ruby-comment"># File lib/swift_client.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_containers_no_cdn</span>(<span class="ruby-identifier">prefix</span>, <span class="ruby-identifier">number_of</span>)
+        <span class="ruby-identifier">start_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_f</span>
+        <span class="ruby-ivar">@count</span> = <span class="ruby-value">1</span>
+        <span class="ruby-identifier">number_of</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-identifier">create_container_no_cdn</span>(<span class="ruby-identifier">prefix</span>)
+                <span class="ruby-identifier">end_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_f</span>
+                <span class="ruby-identifier">time_elapsed</span> = <span class="ruby-identifier">end_time</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">start_time</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Time elapsed to create #{@count} containers: #{time_elapsed} seconds&quot;</span>.<span class="ruby-identifier">bright</span>
+                <span class="ruby-ivar">@count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>                  
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- create_containers_no_cdn-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_containers_no_cdn-method -->
+
+      
+        <div id="create_files-method" class="method-detail ">
+          <a name="method-i-create_files"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">create_files</span><span
+              class="method-args">(path_to_local_files, container)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="create_files-source">
+<pre>
+<span class="ruby-comment"># File lib/swift_client.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_files</span>(<span class="ruby-identifier">path_to_local_files</span>, <span class="ruby-identifier">container</span>)
+        <span class="ruby-identifier">directory</span> = <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">directories</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">container</span>)
+        <span class="ruby-identifier">files</span> = <span class="ruby-constant">Dir</span>[<span class="ruby-identifier">path_to_local_files</span>]
+        <span class="ruby-keyword">for</span> <span class="ruby-identifier">file</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">files</span> <span class="ruby-keyword">do</span>
+                <span class="ruby-identifier">name</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">file</span>)
+                <span class="ruby-keyword">begin</span>
+                        <span class="ruby-keyword">unless</span> <span class="ruby-identifier">directory</span>.<span class="ruby-identifier">files</span>.<span class="ruby-identifier">head</span>(<span class="ruby-identifier">name</span>)
+                                <span class="ruby-identifier">directory</span>.<span class="ruby-identifier">files</span>.<span class="ruby-identifier">create</span>(<span class="ruby-value">:key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>, <span class="ruby-value">:body</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">open</span>(<span class="ruby-identifier">file</span>))
+                                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Uploading file #{name} to #{container}&quot;</span>.<span class="ruby-identifier">bright</span>
+                        <span class="ruby-keyword">else</span>
+                                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;File #{name} already exists. Please delete file and try again&quot;</span>.<span class="ruby-identifier">bright</span>
+                        <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                        <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Container #{container} does not exist. Please check and try again&quot;</span>
+                <span class="ruby-keyword">end</span>
+
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">''</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">'Upload complete'</span>.<span class="ruby-identifier">color</span>(<span class="ruby-value">:green</span>)
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">''</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- create_files-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- create_files-method -->
+
+      
+        <div id="delete_container-method" class="method-detail ">
+          <a name="method-i-delete_container"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">delete_container</span><span
+              class="method-args">(prefix)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="delete_container-source">
+<pre>
+<span class="ruby-comment"># File lib/swift_client.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_container</span>(<span class="ruby-identifier">prefix</span>)
+        <span class="ruby-keyword">begin</span>
+                <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Deleting container #{prefix}...&quot;</span>.<span class="ruby-identifier">color</span>(<span class="ruby-value">:green</span>)
+                <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">directories</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">prefix</span>).<span class="ruby-identifier">destroy</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">''</span>
+        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+                <span class="ruby-comment">#Fog related bugs...tbd</span>
+                <span class="ruby-comment">#raise 'Delete files first or check if the container lists using \'swift-manager list storage -t swift -f &lt;auth&gt; -i container\''</span>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- delete_container-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- delete_container-method -->
+
+      
+        <div id="delete_containers-method" class="method-detail ">
+          <a name="method-i-delete_containers"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">delete_containers</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="delete_containers-source">
+<pre>
+<span class="ruby-comment"># File lib/swift_client.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_containers</span>
+        <span class="ruby-identifier">containers_json</span> = <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">directories</span>.<span class="ruby-identifier">to_json</span>
+        <span class="ruby-identifier">containers</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">containers_json</span>)
+
+        <span class="ruby-identifier">container_names</span> = []
+        <span class="ruby-identifier">containers</span>.<span class="ruby-identifier">length</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">container_names</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">containers</span>[<span class="ruby-identifier">i</span>][<span class="ruby-string">'key'</span>]
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">start_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_f</span>
+        <span class="ruby-identifier">container_names</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">container</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">delete_files</span>(<span class="ruby-identifier">container</span>)
+                <span class="ruby-identifier">delete_container</span>(<span class="ruby-identifier">container</span>)
+                <span class="ruby-identifier">end_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_f</span>
+                <span class="ruby-ivar">@time_elapsed</span> = <span class="ruby-identifier">end_time</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">start_time</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">''</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Time elapsed to delete #{containers.length} containers: #{@time_elapsed} seconds&quot;</span>.<span class="ruby-identifier">bright</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">''</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- delete_containers-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- delete_containers-method -->
+
+      
+        <div id="delete_files-method" class="method-detail ">
+          <a name="method-i-delete_files"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">delete_files</span><span
+              class="method-args">(container)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="delete_files-source">
+<pre>
+<span class="ruby-comment"># File lib/swift_client.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_files</span>(<span class="ruby-identifier">container</span>)
+
+    <span class="ruby-identifier">directory</span> = <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">directories</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">container</span>)
+    <span class="ruby-identifier">files</span> = <span class="ruby-identifier">directory</span>.<span class="ruby-identifier">files</span>
+    <span class="ruby-identifier">files</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">f</span>.<span class="ruby-identifier">destroy</span>
+    <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">''</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;*Deleting all files in container #{container}&quot;</span>.<span class="ruby-identifier">bright</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- delete_files-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- delete_files-method -->
+
+      
+        <div id="generate_json_output-method" class="method-detail ">
+          <a name="method-i-generate_json_output"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">generate_json_output</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="generate_json_output-source">
+<pre>
+<span class="ruby-comment"># File lib/swift_client.rb, line 162</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_json_output</span>
+        <span class="ruby-identifier">container_json_path</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">home</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/.swift-manager/shell/container.json&quot;</span>
+        <span class="ruby-identifier">files_json_path</span>       = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">home</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/.swift-manager/shell/files.json&quot;</span>
+
+        <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">container_json_path</span>, <span class="ruby-string">&quot;w&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>        
+            <span class="ruby-identifier">f</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">directories</span>.<span class="ruby-identifier">to_json</span>
+        <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- generate_json_output-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- generate_json_output-method -->
+
+      
+        <div id="list_containers-method" class="method-detail ">
+          <a name="method-i-list_containers"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">list_containers</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="list_containers-source">
+<pre>
+<span class="ruby-comment"># File lib/swift_client.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list_containers</span>
+       <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">directories</span>.<span class="ruby-identifier">table</span>
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- list_containers-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- list_containers-method -->
+
+      
+        <div id="list_files-method" class="method-detail ">
+          <a name="method-i-list_files"></a>
+
+          
+          <div class="method-heading">
+            <span class="method-name">list_files</span><span
+              class="method-args">(container_name)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+          
+
+          <div class="method-description">
+            
+            
+            
+
+            
+            <div class="method-source-code" id="list_files-source">
+<pre>
+<span class="ruby-comment"># File lib/swift_client.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">list_files</span>(<span class="ruby-identifier">container_name</span>)
+        <span class="ruby-ivar">@connection</span>.<span class="ruby-identifier">directories</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">container_name</span>).<span class="ruby-identifier">files</span>.<span class="ruby-identifier">table</span>([<span class="ruby-value">:key</span>, <span class="ruby-value">:last_modified</span>, <span class="ruby-value">:content_length</span>])                      
+<span class="ruby-keyword">end</span></pre>
+            </div><!-- list_files-source -->
+            
+          </div>
+
+          
+
+          
+        </div><!-- list_files-method -->
+
+      
+      </div><!-- public-instance-method-details -->
+    
+    </div><!-- 5Buntitled-5D -->
+  
+
+  </div><!-- documentation -->
+
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
+
+</body>
+</html>
+

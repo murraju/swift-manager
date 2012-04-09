@@ -1,0 +1,8 @@
+= swift-manager
+
+A Ruby OpenStack Swift Client
+
+:include:sling.rdoc
+
+
+
