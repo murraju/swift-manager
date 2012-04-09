@@ -85,7 +85,7 @@ command :create do |c|
   end
 end
 
-desc 'Generate auth, test configurations'
+desc 'Generate auth onfigurations'
 arg_name 'config'
 command :generate do |c|
 
@@ -253,7 +253,7 @@ command :show do |c|
   end
 end
 
-desc 'Run jobs based on a config'
+desc 'Run batch jobs. Type \'swift-manager help run\' to see options '
 arg_name 'job'
 command :run do |c|
 

@@ -1,0 +1,25 @@
+➜  ~  swift-manager 
+
+[ OpenStack Swift Manager ]
+
+usage: swift-manager [global options] command [command options]
+
+Version: 0.0.2
+
+Global Options:
+    --help - Show this message
+
+Commands:
+    create   - Create Object Storage
+    delete   - Delete Object Storage
+    generate - Generate auth configurations
+    help     - Shows list of commands or help for one command
+    list     - List: configs, storage. Read examples.txt for more information
+    run      - Run jobs based on a config
+    shell    - Interactive Shell (Read-Only)
+    show     - Show Configuration Parameters
+➜  ~  
+
+
+Creating an Auth Config:
+
