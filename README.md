@@ -23,12 +23,13 @@ Supported on Ruby 1.9.3-p125 and JRuby-1.6.7
 
 [DEFAULT]
 cert_file = /etc/swift/cert.crt
+
 key_file = /etc/swift/cert.key
 
 
 ##Install
 
-After installing a Ruby or JRuby, run:
+After installing Ruby or JRuby, run:
 
 gem install swift-manager
 
