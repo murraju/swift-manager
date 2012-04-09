@@ -85,7 +85,7 @@ command :create do |c|
   end
 end
 
-desc 'Generate auth onfigurations'
+desc 'Generate auth configurations'
 arg_name 'config'
 command :generate do |c|
 
