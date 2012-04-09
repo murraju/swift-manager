@@ -22,6 +22,7 @@ Supported on Ruby 1.9.3-p125 and JRuby-1.6.7
 **Assumptions: The current implementation requires SSL at the Swift Proxy server due to Ruby Fog dependencies. Make sure to have the following in /etc/swift/proxy-server.conf
 
 [DEFAULT]
+
 cert_file = /etc/swift/cert.crt
 
 key_file = /etc/swift/cert.key

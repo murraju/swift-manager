@@ -101,7 +101,7 @@ command :generate do |c|
   c.flag [:k, :secret_access_key]
   c.desc 'Access Key ID or Swift Username: <user>:<user>'
   c.flag [:a, :access_key_id]
-  c.desc 'Tag: Assing a tag for later use'
+  c.desc 'Tag: Assign a tag for later use'
   c.flag :tag
 
   c.action do |global_options,options,args|

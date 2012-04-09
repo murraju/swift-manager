@@ -20,6 +20,26 @@ Commands:
     show     - Show Configuration Parameters
 ➜  ~  
 
+Installing:
+
+gem install swift-manager
+
 
 Creating an Auth Config:
 
+➜  ~  swift-manager help generate
+
+generate [command options] config
+    Generate auth configurations
+
+Command Options:
+    -a, --access_key_id=arg     - Access Key ID or Swift Username: <user>:<user>
+    -i, --ip=arg                - Auth URL ip address: Swift
+    -k, --secret_access_key=arg - Secret Access Key or Swift API Key
+    -p, --provider=arg          - Provider: aws, rackspace (for swift)
+    -s, --service=arg           - Service: s3, swift
+    -t, --type=arg              - Type: auth
+    --tag=arg                   - Tag: Assign a tag for later use
+➜  ~  
+
+cd 
