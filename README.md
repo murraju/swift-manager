@@ -37,9 +37,11 @@ gem install swift-manager
 ##Documentation
 
 1. swift-manager help command
-2. Read swift-manager.pdf in the docs directory
+2. Read examples.txt in the docs directory
 
 ####ToDos (Patches are Welcome!)
+
+In addition to continued improvement in documentation...
 
 1. CDN support and CDN enable existing containers
 2. Shell support for listing objects

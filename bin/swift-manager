@@ -138,7 +138,7 @@ command :delete do |c|
   c.flag [:t, :type]
   c.desc 'Auth Config'
   c.flag [:f, :file]
-  c.desc 'Item: container, files (all files)'
+  c.desc 'Item: container, objects (all objects)'
   c.flag [:i, :item]
   c.desc 'Prefix of container'
   c.flag [:p, :prefix]
@@ -156,7 +156,7 @@ command :delete do |c|
       if item == 'container'
         swift_client.delete_container(prefix)
       elsif item == 'files'
-        swift_client.delete_files(prefix)
+        swift_client.delete_objects(prefix)
       end
     else
       raise 'Incorrect options. Please try again or type \'swift-manager help delete\''
@@ -262,7 +262,7 @@ command :run do |c|
   c.flag [:t, :type]
   c.desc 'Auth Config'
   c.flag [:f, :file]
-  c.desc 'Job: clean, create-containers, create-files'
+  c.desc 'Job: clean, create-containers, create-objects'
   c.flag [:j, :job]
   c.desc 'Source: Path to local directory containing the files. Make sure to include "" for the path'
   c.flag [:s, :source]
@@ -284,9 +284,9 @@ command :run do |c|
 
     case type
     when 'swift', 's3'
-      if job == 'create-files'
+      if job == 'create-objects'
         swift_client = SwiftClient.new(type, file)
-        swift_client.create_files(source, destination)
+        swift_client.create_objects(source, destination)
       elsif job == 'clean'
         swift_client = SwiftClient.new(type, file)
         swift_client.delete_containers

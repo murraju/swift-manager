@@ -122,7 +122,7 @@ class SwiftClient
 		puts ''
 	end
 
-	def create_files(path_to_local_files, container)
+	def create_objects(path_to_local_files, container)
 		directory = @connection.directories.get(container)
 		files = Dir[path_to_local_files]
 		for file in files do
@@ -140,15 +140,15 @@ class SwiftClient
 
 		end
 		puts ''
-		puts 'Upload complete'.color(:green)
+		puts 'Creating objects complete'.color(:green)
 		puts ''
 	end
 
-	def list_files(container_name)
+	def list_objects(container_name)
 		@connection.directories.get(container_name).files.table([:key, :last_modified, :content_length])			
 	end
 
-	def delete_files(container)
+	def delete_objects(container)
 
 	    directory = @connection.directories.get(container)
 	    files = directory.files

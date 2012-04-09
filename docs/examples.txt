@@ -25,7 +25,7 @@ Installing:
 gem install swift-manager
 
 
-Creating an Auth Config:
+CREATING AN AUTH CONFIG:
 
 ➜  ~  swift-manager help generate
 
@@ -42,4 +42,296 @@ Command Options:
     --tag=arg                   - Tag: Assign a tag for later use
 ➜  ~  
 
-cd 
+➜  ~  swift-manager generate config -t auth -a test:tester -i 172.16.75.133 -k testing -p rackspace -s swift --tag=swift1
+
+Looks like this is the first time you are running sling. Let's setup the env...
+
+
+[##########################################################################################################################] [100/100] [100%] [00:00] [00:00] [162.72/s]
+
+Adding authentication info to /Users/rajum/.swift-manager/authentication/auth_config_swift1.json
+
+➜  ~  
+
+
+LIST AVAILABLE AUTH CONFIGS:
+
+➜  ~  swift-manager help list
+
+list [command options] config, storage
+    List: configs, storage. Read examples.txt for more information
+
+Command Options:
+    -f, --file=arg - Authentication file (auth_file.json)
+    -i, --item=arg - Item: container, files
+    -n, --name=arg - Name: container name used only when listing files
+    -t, --type=arg - Type: auth, s3, swift
+➜  ~  
+
+
+➜  ~  swift-manager list config -t auth 
+
++--------------------+
+| Auth Config        |
++--------------------+
+| auth_config_swift1 |
++--------------------+
+
+➜  ~  
+
+
+CREATE A CONTAINER:
+
+➜  ~  swift-manager help create 
+
+create [command options] storage
+    Create Object Storage
+
+Command Options:
+    -f, --file=arg - Auth Config
+    -i, --item=arg - Item: container, file
+    -n, --name=arg - Name: a prefix for the container. The result will be [prefix+timestamp] to be unique
+    -t, --type=arg - Type: s3 or swift
+➜  ~  
+
+➜  ~  swift-manager create storage -f auth_config_swift1 -i container -n appliv -t swift
+
+Connecting to OpenStack Swift...
+
+  +-------+-------+-------------------+
+  | bytes | count | key               |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979649 |
+  +-------+-------+-------------------+
+
+  +-------+-------+-------------------+
+  | bytes | count | key               |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979649 |
+  +-------+-------+-------------------+
+➜  ~  
+
+
+CREATING 5 MORE CONTAINERS:
+
+➜  ~  swift-manager help run
+
+run [command options] job
+    Run batch jobs. Type 'swift-manager help run' to see options
+
+Command Options:
+    -d, --destination=arg - Name of container to backup to. Run 'swift-manager list storage -t s3 -f <auth> -i container'
+    -f, --file=arg        - Auth Config
+    -j, --job=arg         - Job: clean, create-containers, create-objects
+    -n, --number=arg      - N number
+    -p, --prefix=arg      - Prefix for containers or files
+    -s, --source=arg      - Source: Path to local directory containing the files. Make sure to include "" for the path
+    -t, --type=arg        - Type: s3, swift
+
+
+➜  ~  swift-manager run job -j create-containers -f auth_config_swift1 -t swift -n 5 -p appliv
+
+Connecting to OpenStack Swift...
+
+Creating 5 containers...please wait
+  +-------+-------+-------------------+
+  | bytes | count | key               |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979649 |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979802 |
+  +-------+-------+-------------------+
+
+Time elapsed to create 1 containers: 1.1871819496154785 seconds
+  +-------+-------+-------------------+
+  | bytes | count | key               |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979649 |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979802 |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979803 |
+  +-------+-------+-------------------+
+
+Time elapsed to create 2 containers: 2.3424289226531982 seconds
+  +-------+-------+-------------------+
+  | bytes | count | key               |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979649 |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979802 |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979803 |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979805 |
+  +-------+-------+-------------------+
+
+Time elapsed to create 3 containers: 3.4233920574188232 seconds
+  +-------+-------+-------------------+
+  | bytes | count | key               |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979649 |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979802 |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979803 |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979805 |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979806 |
+  +-------+-------+-------------------+
+
+Time elapsed to create 4 containers: 4.517287015914917 seconds
+  +-------+-------+-------------------+
+  | bytes | count | key               |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979649 |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979802 |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979803 |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979805 |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979806 |
+  +-------+-------+-------------------+
+  | 0     | 0     | appliv-1333979807 |
+  +-------+-------+-------------------+
+
+Time elapsed to create 5 containers: 5.588828086853027 seconds
+
+Create containers completed
+
+➜  ~  
+
+UPLOAD OBJECTS TO A CONTAINER:
+
+➜  ~  swift-manager help run                                                                  
+
+run [command options] job
+    Run batch jobs. Type 'swift-manager help run' to see options
+
+Command Options:
+    -d, --destination=arg - Name of container to backup to. Run 'swift-manager list storage -t s3 -f <auth> -i container'
+    -f, --file=arg        - Auth Config
+    -j, --job=arg         - Job: clean, create-containers, create-objects
+    -n, --number=arg      - N number
+    -p, --prefix=arg      - Prefix for containers or files
+    -s, --source=arg      - Source: Path to local directory containing the files. Make sure to include "" for the path
+    -t, --type=arg        - Type: s3, swift
+➜  ~  
+
+➜  ~  swift-manager run job -j create-objects -s "/Users/rajum/Desktop/backuptest/*" -d appliv-1333979807 -t swift -f auth_config_swift1
+
+Connecting to OpenStack Swift...
+
+Uploading file APIsAStrategyGuide.epub to appliv-1333979807
+Uploading file build-awesome-command-line-applications-in-ruby_p1_0.epub to appliv-1333979807
+Uploading file file1.txt to appliv-1333979807
+Uploading file file2.txt to appliv-1333979807
+Uploading file file3.txt to appliv-1333979807
+Uploading file file4.txt to appliv-1333979807
+Uploading file HadoopinAction.epub to appliv-1333979807
+Uploading file HBase_The_Definitive_Guide.epub to appliv-1333979807
+Uploading file Machine_Learning_for_Hackers.epub to appliv-1333979807
+Uploading file programming-clojure_b5_0.epub to appliv-1333979807
+Uploading file ServiceOrientedDesignwithRubyandRails.epub to appliv-1333979807
+Uploading file SinatraUpandRunning.epub to appliv-1333979807
+Uploading file Working With Unix Processes.epub to appliv-1333979807
+
+Creating objects complete
+
+➜  ~  
+
+BROWSING CONTAINERS (JSON TREE) USING THE SHELL:
+
+➜  ~  swift-manager shell container -t swift -f auth_config_swift1
+
+Connecting to OpenStack Swift...
+
+swift>  <TAB>
+0  1  2  3  4  5
+swift> cd 5
+swift> ls
+key count bytes
+swift> cat key
+"appliv-1333979807"
+swift> cat count
+0
+swift> cat bytes
+0
+swift> cd ..
+swift> ls
+0 1 2 3 4 5
+swift> 
+
+
+CLEAN UP (DELETE CONTAINERS WITH OR WITHOUT OBJECTS):
+
+➜  ~  swift-manager help run                                                                  
+
+run [command options] job
+    Run batch jobs. Type 'swift-manager help run' to see options
+
+Command Options:
+    -d, --destination=arg - Name of container to backup to. Run 'swift-manager list storage -t s3 -f <auth> -i container'
+    -f, --file=arg        - Auth Config
+    -j, --job=arg         - Job: clean, create-containers, create-objects
+    -n, --number=arg      - N number
+    -p, --prefix=arg      - Prefix for containers or files
+    -s, --source=arg      - Source: Path to local directory containing the files. Make sure to include "" for the path
+    -t, --type=arg        - Type: s3, swift
+➜  ~  
+
+➜  ~  swift-manager run job -j clean -f auth_config_swift1 -t swift
+
+Connecting to OpenStack Swift...
+
+
+*Deleting all files in container appliv-1333979649
+Deleting container appliv-1333979649...
+
+*Deleting all files in container appliv-1333979802
+Deleting container appliv-1333979802...
+
+*Deleting all files in container appliv-1333979803
+Deleting container appliv-1333979803...
+
+*Deleting all files in container appliv-1333979805
+Deleting container appliv-1333979805...
+
+*Deleting all files in container appliv-1333979806
+Deleting container appliv-1333979806...
+
+*Deleting all files in container appliv-1333979807
+Deleting container appliv-1333979807...
+
+Time elapsed to delete 6 containers: 0.7386581897735596 seconds
+
+➜  ~  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
