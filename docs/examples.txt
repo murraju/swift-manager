@@ -20,7 +20,7 @@ Commands:
     show     - Show Configuration Parameters
 ➜  ~  
 
-Installing:
+INSTALL:
 
 gem install swift-manager
 
@@ -78,6 +78,28 @@ Command Options:
 +--------------------+
 
 ➜  ~  
+
+SHOW AUTH CONFIG PARAMETERS:
+
+➜  swift-manager help show
+
+show [command options] config
+    Show Configuration Parameters
+
+Command Options:
+    -f, --file=arg - File: config file
+    -t, --type=arg - Type: auth
+
+
+➜  swift-manager show config -t auth -f  auth_config_swift1
+
++--------+-----------+---------+-------------------+---------------+---------------+
+| Tag    | Provider  | Service | Secret Access Key | Access Key ID | Auth URL IP   |
++--------+-----------+---------+-------------------+---------------+---------------+
+| swift1 | rackspace | swift   | testing           | test:tester   | 172.16.75.133 |
++--------+-----------+---------+-------------------+---------------+---------------+
+
+
 
 
 CREATE A CONTAINER:
