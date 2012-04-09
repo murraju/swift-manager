@@ -46,7 +46,7 @@ class Configurator
 	        puts ''			
 		else
 			
-			puts 'Looks like this is the first time you are running sling. Let\'s setup the env...'.color(:green)
+			puts 'Looks like this is the first time you are running swift-manager. Let\'s setup the env...'.color(:green)
 			puts ''
 			formatter = Formatter.new
 			formatter.print_progress_bar_short

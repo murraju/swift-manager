@@ -44,7 +44,7 @@ Command Options:
 
 ➜  ~  swift-manager generate config -t auth -a test:tester -i 172.16.75.133 -k testing -p rackspace -s swift --tag=swift1
 
-Looks like this is the first time you are running sling. Let's setup the env...
+Looks like this is the first time you are running swift-manager. Let's setup the env...
 
 
 [##########################################################################################################################] [100/100] [100%] [00:00] [00:00] [162.72/s]
