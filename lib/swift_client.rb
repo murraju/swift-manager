@@ -41,7 +41,7 @@ class SwiftClient
 			provider = @auth_params["provider"]			
 			swift_api_key = @auth_params["keys"]["secret_access_key"]
 			swift_username = @auth_params["keys"]["access_key_id"]
-			swift_auth_ip = @auth_params["url_ip"]
+			swift_auth_url = @auth_params["url"]
 
 			begin
 			Excon.defaults[:ssl_verify_peer] = false #SSL verify error on Mac OS X	
@@ -50,12 +50,12 @@ class SwiftClient
 			@connection = Fog::Storage.new({	:provider => provider,
 												:rackspace_username => swift_username,
 												:rackspace_api_key => swift_api_key,
-												:rackspace_auth_url => "#{swift_auth_ip}:8080/auth/v1.0"})
+												:rackspace_auth_url => "#{swift_auth_url}"})
 
 			@cdn_connection = Fog::CDN.new({	:provider => provider,
 												:rackspace_username => swift_username,
 												:rackspace_api_key => swift_api_key,
-												:rackspace_auth_url => "#{swift_auth_ip}:8080/auth/v1.0"}) 			
+												:rackspace_auth_url => "#{swift_auth_url}"}) 			
 
 			rescue Exception => e
 				raise 'Unable to connect to OpenStack Swift. Check authentication information or if the service is running.'
