@@ -95,8 +95,8 @@ command :generate do |c|
   c.flag [:p, :provider]
   c.desc 'Service: s3, swift'
   c.flag [:s, :service]
-  c.desc 'Auth URL ip address: Swift '
-  c.flag [:i, :ip]
+  c.desc 'Auth URL for Swift http://<ip>:<port>/v2.0 (keystone) or http://<ip>:<port>/1.0 for swift_auth'
+  c.flag [:u, :url]
   c.desc 'Secret Access Key or Swift API Key'
   c.flag [:k, :secret_access_key]
   c.desc 'Access Key ID or Swift Username: <user>:<user>'
@@ -112,12 +112,12 @@ command :generate do |c|
       secret_access_key = options[:secret_access_key]
       access_key_id     = options[:access_key_id]
       tag               = options[:tag]
-      url_ip            = options[:ip]
+      url               = options[:url]
       
       case config_type
       when 'auth'
         auth_config = Configurator.new
-        auth_hash   = { :provider => provider, :service => service, :url_ip => url_ip, 
+        auth_hash   = { :provider => provider, :service => service, :url => url, 
                         :secret_access_key => secret_access_key, :access_key_id => access_key_id, :tag => tag }
         auth_config.create_auth_config(auth_hash)
       else

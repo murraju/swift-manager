@@ -43,7 +43,7 @@ class Parser
 		auth_params = JSON.parse(auth_config)
 
 		#Display table output using the terminal-table gem
-		table = Terminal::Table.new :headings => [ 'Tag', 'Provider', 'Service', 'Secret Access Key', 'Access Key ID', 'Auth URL IP']
+		table = Terminal::Table.new :headings => [ 'Tag', 'Provider', 'Service', 'Secret Access Key', 'Access Key ID', 'Auth URL']
 		auth_params.each do |row|
 		  @row = []
 		  @row << auth_params["tag"]
@@ -51,7 +51,7 @@ class Parser
 		  @row << auth_params["service"]
 		  @row << auth_params["keys"]["secret_access_key"]
 		  @row << auth_params["keys"]["access_key_id"]
-		  @row << auth_params["url_ip"]
+		  @row << auth_params["url"]
 		end
 		table << @row
 		puts table.to_s

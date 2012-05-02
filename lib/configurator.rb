@@ -24,9 +24,9 @@ class Configurator
 		my_secret_access_key = auth_hash[:secret_access_key]
 		my_access_key_id = auth_hash[:access_key_id]
 		my_tag = auth_hash[:tag]
-		my_auth_url_ip = auth_hash[:url_ip]
+		my_auth_url = auth_hash[:url]
 
-      	auth_params = { :provider => my_provider, :service => my_service, :tag => my_tag, :url_ip => my_auth_url_ip,
+      	auth_params = { :provider => my_provider, :service => my_service, :tag => my_tag, :url => my_auth_url,
 				        :keys => { :secret_access_key => my_secret_access_key, 
 				  	               :access_key_id => my_access_key_id } }
 
